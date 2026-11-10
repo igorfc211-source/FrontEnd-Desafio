@@ -1,0 +1,1017 @@
+{
+  "generatedAt": "2026-11-10T22:49:30.279Z",
+  "baseUrl": "http://127.0.0.1:4174",
+  "scenario": "default, new browser profile per measurement",
+  "environment": {
+    "node": "v22.12.0",
+    "playwright": "1.65.0",
+    "os": "win32 10.0.19045",
+    "cpu": "Intel(R) Core(TM) i7-4790S CPU @ 3.20GHz",
+    "threads": 8,
+    "chromeFlags": [
+      "--headless=new",
+      "--no-sandbox",
+      "--force-color-profile=srgb"
+    ]
+  },
+  "targets": {
+    "performance": 90,
+    "accessibility": 95,
+    "best-practices": 95,
+    "seo": 90
+  },
+  "results": [
+    {
+      "page": "home",
+      "path": "/",
+      "profile": "mobile",
+      "medians": {
+        "performance": 86,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "largest-contentful-paint": 3219.31905,
+        "cumulative-layout-shift": 0,
+        "total-blocking-time": 112.5
+      },
+      "belowTarget": [
+        {
+          "category": "performance",
+          "target": 90,
+          "audits": [
+            {
+              "id": "first-contentful-paint",
+              "title": "First Contentful Paint",
+              "score": 0.53,
+              "displayValue": "2.9 s"
+            },
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.72,
+              "displayValue": "3.2 s"
+            },
+            {
+              "id": "total-blocking-time",
+              "title": "Total Blocking Time",
+              "score": 0.98,
+              "displayValue": "100 ms"
+            },
+            {
+              "id": "speed-index",
+              "title": "Speed Index",
+              "score": 0.87,
+              "displayValue": "3.6 s"
+            }
+          ]
+        }
+      ],
+      "performanceEvidence": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 1059.6039999999953
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 469.92000000000127
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 244.996
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 29.624000000000002
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 17.81599999999998
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 7.0760000000000005
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 6.007999999999999
+          }
+        ],
+        "scriptBoot": [
+          {
+            "url": "http://127.0.0.1:4174/assets/browser-DIVgjJEr.js",
+            "total": 555.1680000000008,
+            "scripting": 498.3520000000008,
+            "scriptParseCompile": 1.504
+          },
+          {
+            "url": "Unattributable",
+            "total": 516.2720000000008,
+            "scripting": 168.05600000000007,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://127.0.0.1:4174/assets/index-BSQrF68Y.js",
+            "total": 420.839999999999,
+            "scripting": 378.431999999999,
+            "scriptParseCompile": 0.292
+          },
+          {
+            "url": "http://127.0.0.1:4174/",
+            "total": 325.6480000000001,
+            "scripting": 12.991999999999999,
+            "scriptParseCompile": 2.504
+          }
+        ],
+        "lcpBreakdown": [
+          {
+            "subpart": "timeToFirstByte",
+            "label": "Time to first byte",
+            "duration": 202.25
+          },
+          {
+            "subpart": "resourceLoadDelay",
+            "label": "Resource load delay",
+            "duration": 1258.779
+          },
+          {
+            "subpart": "resourceLoadDuration",
+            "label": "Resource load duration",
+            "duration": 23.632
+          },
+          {
+            "subpart": "elementRenderDelay",
+            "label": "Element render delay",
+            "duration": 512.835
+          }
+        ],
+        "opportunities": [
+          {
+            "id": "unused-javascript",
+            "title": "Reduce unused JavaScript",
+            "estimatedSavingsMs": 600
+          },
+          {
+            "id": "prioritize-lcp-image",
+            "title": "Preload Largest Contentful Paint image",
+            "estimatedSavingsMs": 173.59400000000005
+          },
+          {
+            "id": "render-blocking-resources",
+            "title": "Eliminate render-blocking resources",
+            "estimatedSavingsMs": 150
+          },
+          {
+            "id": "uses-responsive-images",
+            "title": "Properly size images",
+            "estimatedSavingsMs": 150
+          }
+        ]
+      },
+      "lighthouseVersion": "12.8.2",
+      "browserVersion": "Chrome/158.0.8127.18",
+      "settings": {
+        "output": [
+          "html",
+          "json"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "samples": [
+        {
+          "name": "home-mobile-1",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts?",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 86,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 3197.188,
+          "cumulative-layout-shift": 0,
+          "total-blocking-time": 101.5
+        },
+        {
+          "name": "home-mobile-2",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts?",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 86,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 3237.324,
+          "cumulative-layout-shift": 0,
+          "total-blocking-time": 122
+        },
+        {
+          "name": "home-mobile-3",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts?",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 87,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 3219.31905,
+          "cumulative-layout-shift": 0,
+          "total-blocking-time": 112.5
+        }
+      ]
+    },
+    {
+      "page": "home",
+      "path": "/",
+      "profile": "desktop",
+      "medians": {
+        "performance": 99,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "largest-contentful-paint": 754.7660000000001,
+        "cumulative-layout-shift": 0.0001910210849872992,
+        "total-blocking-time": 0
+      },
+      "belowTarget": [],
+      "performanceEvidence": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 285.70199999999886
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 155.38799999999938
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 92.74
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 9.071999999999996
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 6.912999999999995
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 1.745
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 1.424
+          }
+        ],
+        "scriptBoot": [
+          {
+            "url": "Unattributable",
+            "total": 168.23300000000054,
+            "scripting": 41.275999999999975,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://127.0.0.1:4174/assets/browser-DIVgjJEr.js",
+            "total": 151.33600000000015,
+            "scripting": 136.69400000000016,
+            "scriptParseCompile": 0.42
+          },
+          {
+            "url": "http://127.0.0.1:4174/assets/index-BSQrF68Y.js",
+            "total": 115.33399999999995,
+            "scripting": 104.75099999999995,
+            "scriptParseCompile": 0.056
+          },
+          {
+            "url": "http://127.0.0.1:4174/",
+            "total": 113.09299999999999,
+            "scripting": 2.5639999999999996,
+            "scriptParseCompile": 0.42800000000000005
+          }
+        ],
+        "lcpBreakdown": [
+          {
+            "subpart": "timeToFirstByte",
+            "label": "Time to first byte",
+            "duration": 105.607
+          },
+          {
+            "subpart": "resourceLoadDelay",
+            "label": "Resource load delay",
+            "duration": 1506.425
+          },
+          {
+            "subpart": "resourceLoadDuration",
+            "label": "Resource load duration",
+            "duration": 26.902
+          },
+          {
+            "subpart": "elementRenderDelay",
+            "label": "Element render delay",
+            "duration": 203.477
+          }
+        ],
+        "opportunities": [
+          {
+            "id": "unused-javascript",
+            "title": "Reduce unused JavaScript",
+            "estimatedSavingsMs": 80
+          },
+          {
+            "id": "prioritize-lcp-image",
+            "title": "Preload Largest Contentful Paint image",
+            "estimatedSavingsMs": 66.15600000000018
+          },
+          {
+            "id": "render-blocking-resources",
+            "title": "Eliminate render-blocking resources",
+            "estimatedSavingsMs": 40
+          }
+        ]
+      },
+      "lighthouseVersion": "12.8.2",
+      "browserVersion": "Chrome/158.0.8127.18",
+      "settings": {
+        "output": [
+          "html",
+          "json"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "samples": [
+        {
+          "name": "home-desktop-1",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts?",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 758.4679999999998,
+          "cumulative-layout-shift": 0.0001910210849872992,
+          "total-blocking-time": 0
+        },
+        {
+          "name": "home-desktop-2",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts?",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 722.57,
+          "cumulative-layout-shift": 0.0001910210849872992,
+          "total-blocking-time": 0
+        },
+        {
+          "name": "home-desktop-3",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts?",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 99,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 754.7660000000001,
+          "cumulative-layout-shift": 0.0001910210849872992,
+          "total-blocking-time": 0
+        }
+      ]
+    },
+    {
+      "page": "detail",
+      "path": "/nft/chromatic-echoes",
+      "profile": "mobile",
+      "medians": {
+        "performance": 86,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "largest-contentful-paint": 3275.687,
+        "cumulative-layout-shift": 0,
+        "total-blocking-time": 65.01524999999992
+      },
+      "belowTarget": [
+        {
+          "category": "performance",
+          "target": 90,
+          "audits": [
+            {
+              "id": "first-contentful-paint",
+              "title": "First Contentful Paint",
+              "score": 0.5,
+              "displayValue": "3.0 s"
+            },
+            {
+              "id": "largest-contentful-paint",
+              "title": "Largest Contentful Paint",
+              "score": 0.7,
+              "displayValue": "3.3 s"
+            },
+            {
+              "id": "total-blocking-time",
+              "title": "Total Blocking Time",
+              "score": 0.99,
+              "displayValue": "70 ms"
+            },
+            {
+              "id": "speed-index",
+              "title": "Speed Index",
+              "score": 0.89,
+              "displayValue": "3.4 s"
+            }
+          ]
+        }
+      ],
+      "performanceEvidence": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 1143.5760000000002
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 407.4480000000008
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 182.53999999999996
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 18.81999999999999
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 15.063999999999991
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 5.919999999999998
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 4.896000000000001
+          }
+        ],
+        "scriptBoot": [
+          {
+            "url": "http://127.0.0.1:4174/assets/browser-DIVgjJEr.js",
+            "total": 603.7720000000012,
+            "scripting": 559.8360000000013,
+            "scriptParseCompile": 1.492
+          },
+          {
+            "url": "Unattributable",
+            "total": 474.4840000000006,
+            "scripting": 172.90399999999994,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://127.0.0.1:4174/assets/index-BSQrF68Y.js",
+            "total": 436.58000000000015,
+            "scripting": 396.9200000000002,
+            "scriptParseCompile": 0.28
+          },
+          {
+            "url": "http://127.0.0.1:4174/nft/chromatic-echoes",
+            "total": 240.33599999999996,
+            "scripting": 11.487999999999998,
+            "scriptParseCompile": 1.7000000000000002
+          }
+        ],
+        "lcpBreakdown": [
+          {
+            "subpart": "timeToFirstByte",
+            "label": "Time to first byte",
+            "duration": 6.769999996185303
+          },
+          {
+            "subpart": "resourceLoadDelay",
+            "label": "Resource load delay",
+            "duration": 1480.1350000038146
+          },
+          {
+            "subpart": "resourceLoadDuration",
+            "label": "Resource load duration",
+            "duration": 22.166
+          },
+          {
+            "subpart": "elementRenderDelay",
+            "label": "Element render delay",
+            "duration": 194.158
+          }
+        ],
+        "opportunities": [
+          {
+            "id": "unused-javascript",
+            "title": "Reduce unused JavaScript",
+            "estimatedSavingsMs": 600
+          },
+          {
+            "id": "render-blocking-resources",
+            "title": "Eliminate render-blocking resources",
+            "estimatedSavingsMs": 150
+          },
+          {
+            "id": "prioritize-lcp-image",
+            "title": "Preload Largest Contentful Paint image",
+            "estimatedSavingsMs": 25.34349999999995
+          }
+        ]
+      },
+      "lighthouseVersion": "12.8.2",
+      "browserVersion": "Chrome/158.0.8127.18",
+      "settings": {
+        "output": [
+          "html",
+          "json"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "mobile",
+        "throttling": {
+          "rttMs": 150,
+          "throughputKbps": 1638.4,
+          "requestLatencyMs": 562.5,
+          "downloadThroughputKbps": 1474.5600000000002,
+          "uploadThroughputKbps": 675,
+          "cpuSlowdownMultiplier": 4
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": true,
+          "width": 412,
+          "height": 823,
+          "deviceScaleFactor": 1.75,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Mobile Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "samples": [
+        {
+          "name": "detail-mobile-1",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts/chromatic-echoes",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 86,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 3275.687,
+          "cumulative-layout-shift": 0,
+          "total-blocking-time": 65.01524999999992
+        },
+        {
+          "name": "detail-mobile-2",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts/chromatic-echoes",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 84,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 3384.138,
+          "cumulative-layout-shift": 0,
+          "total-blocking-time": 159
+        },
+        {
+          "name": "detail-mobile-3",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts/chromatic-echoes",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 87,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 3237.3675000000003,
+          "cumulative-layout-shift": 0,
+          "total-blocking-time": 49
+        }
+      ]
+    },
+    {
+      "page": "detail",
+      "path": "/nft/chromatic-echoes",
+      "profile": "desktop",
+      "medians": {
+        "performance": 94,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "largest-contentful-paint": 772.1812500000001,
+        "cumulative-layout-shift": 0.1417617937684278,
+        "total-blocking-time": 0
+      },
+      "belowTarget": [],
+      "performanceEvidence": {
+        "mainThread": [
+          {
+            "group": "scriptEvaluation",
+            "groupLabel": "Script Evaluation",
+            "duration": 281.73500000000104
+          },
+          {
+            "group": "other",
+            "groupLabel": "Other",
+            "duration": 114.26000000000013
+          },
+          {
+            "group": "styleLayout",
+            "groupLabel": "Style & Layout",
+            "duration": 59.709
+          },
+          {
+            "group": "paintCompositeRender",
+            "groupLabel": "Rendering",
+            "duration": 5.348999999999996
+          },
+          {
+            "group": "garbageCollection",
+            "groupLabel": "Garbage Collection",
+            "duration": 4.018
+          },
+          {
+            "group": "parseHTML",
+            "groupLabel": "Parse HTML & CSS",
+            "duration": 1.5750000000000002
+          },
+          {
+            "group": "scriptParseCompile",
+            "groupLabel": "Script Parsing & Compilation",
+            "duration": 1.3639999999999999
+          }
+        ],
+        "scriptBoot": [
+          {
+            "url": "http://127.0.0.1:4174/assets/browser-DIVgjJEr.js",
+            "total": 152.93600000000023,
+            "scripting": 140.95800000000023,
+            "scriptParseCompile": 0.384
+          },
+          {
+            "url": "Unattributable",
+            "total": 127.22600000000031,
+            "scripting": 41.648999999999994,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "http://127.0.0.1:4174/assets/index-BSQrF68Y.js",
+            "total": 106.16100000000009,
+            "scripting": 95.5430000000001,
+            "scriptParseCompile": 0.052
+          },
+          {
+            "url": "http://127.0.0.1:4174/nft/chromatic-echoes",
+            "total": 76.28600000000002,
+            "scripting": 3.146999999999999,
+            "scriptParseCompile": 0.42400000000000004
+          }
+        ],
+        "lcpBreakdown": [
+          {
+            "subpart": "timeToFirstByte",
+            "label": "Time to first byte",
+            "duration": 8.383
+          },
+          {
+            "subpart": "resourceLoadDelay",
+            "label": "Resource load delay",
+            "duration": 1470.756
+          },
+          {
+            "subpart": "resourceLoadDuration",
+            "label": "Resource load duration",
+            "duration": 23.042
+          },
+          {
+            "subpart": "elementRenderDelay",
+            "label": "Element render delay",
+            "duration": 278.157
+          }
+        ],
+        "opportunities": [
+          {
+            "id": "unused-javascript",
+            "title": "Reduce unused JavaScript",
+            "estimatedSavingsMs": 80
+          },
+          {
+            "id": "render-blocking-resources",
+            "title": "Eliminate render-blocking resources",
+            "estimatedSavingsMs": 40
+          },
+          {
+            "id": "prioritize-lcp-image",
+            "title": "Preload Largest Contentful Paint image",
+            "estimatedSavingsMs": 27.115499999999997
+          },
+          {
+            "id": "uses-responsive-images",
+            "title": "Properly size images",
+            "estimatedSavingsMs": 10
+          }
+        ]
+      },
+      "lighthouseVersion": "12.8.2",
+      "browserVersion": "Chrome/158.0.8127.18",
+      "settings": {
+        "output": [
+          "html",
+          "json"
+        ],
+        "maxWaitForFcp": 30000,
+        "maxWaitForLoad": 45000,
+        "pauseAfterFcpMs": 1000,
+        "pauseAfterLoadMs": 1000,
+        "networkQuietThresholdMs": 1000,
+        "cpuQuietThresholdMs": 1000,
+        "formFactor": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "requestLatencyMs": 0,
+          "downloadThroughputKbps": 0,
+          "uploadThroughputKbps": 0,
+          "cpuSlowdownMultiplier": 1
+        },
+        "throttlingMethod": "simulate",
+        "screenEmulation": {
+          "mobile": false,
+          "width": 1350,
+          "height": 940,
+          "deviceScaleFactor": 1,
+          "disabled": false
+        },
+        "emulatedUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+        "auditMode": false,
+        "gatherMode": false,
+        "clearStorageTypes": [
+          "file_systems",
+          "shader_cache",
+          "service_workers",
+          "cache_storage"
+        ],
+        "disableStorageReset": false,
+        "debugNavigation": false,
+        "channel": "node",
+        "usePassiveGathering": false,
+        "disableFullPageScreenshot": false,
+        "skipAboutBlank": false,
+        "blankPage": "about:blank",
+        "ignoreStatusCode": false,
+        "locale": "en-US",
+        "blockedUrlPatterns": null,
+        "additionalTraceCategories": null,
+        "extraHeaders": null,
+        "precomputedLanternData": null,
+        "onlyAudits": null,
+        "onlyCategories": [
+          "performance",
+          "accessibility",
+          "best-practices",
+          "seo"
+        ],
+        "skipAudits": null
+      },
+      "samples": [
+        {
+          "name": "detail-desktop-1",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts/chromatic-echoes",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 94,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 808.0197499999999,
+          "cumulative-layout-shift": 0.1417617937684278,
+          "total-blocking-time": 0
+        },
+        {
+          "name": "detail-desktop-2",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts/chromatic-echoes",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 94,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 772.1812500000001,
+          "cumulative-layout-shift": 0.1417617937684278,
+          "total-blocking-time": 0
+        },
+        {
+          "name": "detail-desktop-3",
+          "version": "Chrome/158.0.8127.18",
+          "fixture": {
+            "api": "http://127.0.0.1:4174/api/nfts/chromatic-echoes",
+            "image": "http://127.0.0.1:4174/art/01.webp",
+            "alt": "Emerald Ape #042"
+          },
+          "performance": 94,
+          "accessibility": 100,
+          "best-practices": 100,
+          "seo": 100,
+          "largest-contentful-paint": 752.15,
+          "cumulative-layout-shift": 0.1417617937684278,
+          "total-blocking-time": 0
+        }
+      ]
+    }
+  ]
+}
