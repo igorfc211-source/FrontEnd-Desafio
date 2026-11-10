@@ -186,9 +186,15 @@ test('recovers a pending order after disconnect and refresh without submitting a
   await addFixture(page)
   await page.goto(orderUrl)
   await expect(page.getByRole('heading', { name: /pagamento pendente|pedido pendente/i })).toBeVisible()
+  // A live event confirms the socket has connected after the document navigation.
+  const livePriceNotice = page.getByText(/o preço ou a disponibilidade de um item mudou/i)
+  await expect.poll(async () => {
+    await action(page, { type: 'price-change', price: '1.31' })
+    return livePriceNotice.isVisible()
+  }, { timeout: 12_000 }).toBe(true)
   await action(page, { type: 'disconnect' })
   await action(page, { type: 'resolve-orders', status: 'confirmed' })
-  await expect(page.getByText(/conexão restabelecida/i)).toBeVisible()
+  await expect(page.getByText(/conexão restabelecida/i)).toBeVisible({ timeout: 10_000 })
   await expect(page.getByRole('heading', { name: /pedido confirmado/i })).toBeVisible()
   await page.reload()
   await expect(page).toHaveURL(orderUrl)
