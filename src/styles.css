@@ -305,3 +305,57 @@ p { line-height: 1.6; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
 }
 .card-prices { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+
+/* Community and learning pages */
+.community-page { display: grid; gap: 28px; }
+.community-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.community-grid h2, .tutorial-steps h2 { font-size: 18px; }
+.community-grid p, .tutorial-steps p { line-height: 1.8; }
+.creator-monogram { display: grid; place-items: center; width: 56px; height: 56px; border: 1px solid currentColor; color: #e5a45e; border-radius: 50%; font-size: 20px; }
+.tutorial-steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+.tutorial-steps h2 { margin: 14px 0; }
+.commerce-account-layout > section { min-width: 0; }
+.commerce-account-layout summary { cursor: pointer; padding: 10px 0; }
+.commerce-account-layout summary + p { line-height: 1.8; }
+@media (max-width: 900px) { .community-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .community-grid { grid-template-columns: 1fr; } }
+
+/* Consistent interaction motion without delaying navigation or form actions. */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  :is(a, button, input, select, textarea, summary) {
+    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease,
+      box-shadow 180ms ease, opacity 180ms ease, scale 160ms ease;
+  }
+  :is(button, .button, .icon-button):not(:disabled):active { scale: .97; }
+  :is(input, select, textarea):focus-visible { box-shadow: 0 0 0 3px rgb(210 138 76 / 12%); }
+  :is(.header-nav, .menu-links, .commerce-account-sidebar nav) a { transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease; }
+  .header-nav a::after { animation: kurio-underline 200ms ease both; transform-origin: left; }
+  .hero-dots button::after { transition: background-color 180ms ease, scale 180ms ease; }
+  .hero-dots button[aria-pressed="true"]::after { scale: 1.2; }
+  .dialog-overlay[data-state="open"] { animation: kurio-fade-in 180ms ease both; }
+  .dialog-overlay[data-state="closed"] { animation: kurio-fade-out 140ms ease both; }
+  .dialog-content[data-state="open"] { animation: kurio-dialog-in 220ms cubic-bezier(.2,.7,.3,1) both; }
+  .dialog-content[data-state="closed"] { animation: kurio-dialog-out 140ms ease both; }
+  :is(.notice, .live-feedback:not(:empty), .commerce-field-error) { animation: kurio-fade-in 180ms ease both; }
+  details::details-content { transition: content-visibility 200ms allow-discrete, block-size 200ms ease, opacity 200ms ease; }
+  @supports (interpolate-size: allow-keywords) {
+    details { interpolate-size: allow-keywords; }
+    details::details-content { block-size: 0; overflow: clip; opacity: 0; }
+    details[open]::details-content { block-size: auto; opacity: 1; }
+  }
+}
+@keyframes kurio-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes kurio-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes kurio-underline { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes kurio-dialog-in {
+  from { opacity: 0; transform: translate(-50%, calc(-50% + 10px)) scale(.98); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes kurio-dialog-out {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, calc(-50% + 6px)) scale(.99); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

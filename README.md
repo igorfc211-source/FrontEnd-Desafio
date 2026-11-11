@@ -82,3 +82,8 @@ O projeto inclui rewrite de SPA para Vercel e `public/_redirects` para Netlify e
 ## Referência visual
 
 O export oficial fornecido pelo usuário orientou a reconstrução das telas desktop e mobile da Kurio. As quatro obras recorrentes e os ícones disponíveis foram extraídos do material exportado. A documentação registra as adaptações para os fluxos simulados e o uso de IBM Plex Mono como aproximação tipográfica. [Figma](https://www.figma.com/design/Ff0SksUi7UFtPWUO8kyNtw/Frontend-Challenge?node-id=0-1) · [Origem dos assets](ARTWORK.md) · [Decisões de interface](ARCHITECTURE.md#interface-e-referência)
+
+## Documentação para apresentação
+
+Consulte [DOCUMENTACAO.md](DOCUMENTACAO.md) para a visão completa, mapa de telas, roteiro de demonstração, arquitetura, configuração e limites da versão.
+

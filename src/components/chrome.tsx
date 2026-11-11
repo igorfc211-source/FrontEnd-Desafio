@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { Link, Outlet, useRouterState } from '@tanstack/react-router'
 import { ArrowUpRight, Heart, House, LogIn, ScanLine, Search, ShieldCheck, UserRound, Wallet } from 'lucide-react'
@@ -20,6 +20,15 @@ export function Chrome() {
   const session = useSession()
   const href = useRouterState({ select: (state) => state.location.href })
   const pathname = useRouterState({ select: (state) => state.location.pathname })
+  const contentRef = useRef<HTMLElement>(null)
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const animation = contentRef.current?.animate(
+      [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'translateY(0)' }],
+      { duration: 240, easing: 'cubic-bezier(0.2, 0.7, 0.3, 1)' },
+    )
+    return () => animation?.cancel()
+  }, [pathname])
   const home = pathname === '/'
   const standalone = /^\/(nft\/|cart$|checkout$|login$|register$)/.test(pathname)
   const scope = scopeKey(session)
@@ -57,7 +66,7 @@ export function Chrome() {
         <nav aria-label="Navegação principal" className="header-nav">
           <Link to="/" activeOptions={{ exact: true, includeSearch: false }} className={home && !href.includes('#catalogo') ? 'nav-current' : undefined}>Início</Link>
           <Link to="/" hash="catalogo" activeOptions={{ exact: true, includeHash: true }} className={!home || href.includes('#catalogo') ? 'nav-current' : undefined}>Mercado</Link>
-          <span aria-disabled="true">Criadores</span><span aria-disabled="true">Aprenda</span>
+          <Link to="/creators">Criadores</Link><Link to="/learn">Aprenda</Link>
         </nav>
         <div className="header-actions">
           <Link to="/" className="icon-button dock-only" aria-label="Início"><House size={20} /></Link>
@@ -74,6 +83,7 @@ export function Chrome() {
               <nav aria-label="Menu" className="menu-links">
                 <Link to="/" onClick={() => setOpen(false)}>Início</Link>
                 <Link to="/" hash="catalogo" onClick={() => setOpen(false)}>Explorar catálogo</Link>
+                <Link to="/creators" onClick={() => setOpen(false)}>Criadores</Link><Link to="/learn" onClick={() => setOpen(false)}>Aprenda</Link>
                 {accountLinks}
               </nav>
             </DialogContent>
@@ -82,7 +92,7 @@ export function Chrome() {
       </div>
     </header>
     {session !== undefined && <Suspense fallback={null}><Realtime /></Suspense>}
-    <main id="conteudo" tabIndex={-1}><Outlet /></main>
+    <main ref={contentRef} id="conteudo" tabIndex={-1}><Outlet /></main>
     <footer className={`site-footer ${home ? 'home-footer' : ''}`}>
       <div className="container">
         <div className="footer-features">

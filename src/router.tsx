@@ -57,8 +57,14 @@ const favorites = createRoute({
   component: lazyRouteComponent(() => import('./features/nft'), 'FavoritesPage'),
 })
 
+const creators = createRoute({ getParentRoute: () => root, path: '/creators', component: lazyRouteComponent(() => import('./features/community'), 'CreatorsPage') })
+const learn = createRoute({ getParentRoute: () => root, path: '/learn', component: lazyRouteComponent(() => import('./features/community'), 'LearnPage') })
+const activity = createRoute({ getParentRoute: () => privateRoute, path: '/activity', component: lazyRouteComponent(() => import('./features/community'), 'ActivityPage') })
+const offers = createRoute({ getParentRoute: () => privateRoute, path: '/offers', component: lazyRouteComponent(() => import('./features/community'), 'OffersPage') })
+const downloads = createRoute({ getParentRoute: () => privateRoute, path: '/downloads', component: lazyRouteComponent(() => import('./features/community'), 'DownloadsPage') })
+const support = createRoute({ getParentRoute: () => privateRoute, path: '/support', component: lazyRouteComponent(() => import('./features/community'), 'SupportPage') })
 const router = createRouter({
-  routeTree: root.addChildren([home, nft, cart, login, register, privateRoute.addChildren([checkout, order, profile, wallets, favorites])]),
+  routeTree: root.addChildren([home, nft, cart, login, register, creators, learn, privateRoute.addChildren([checkout, order, profile, wallets, favorites, activity, offers, downloads, support])]),
   parseSearch: (raw) => {
     const search: Record<string, unknown> = { ...defaultParseSearch(raw) }
     const params = new URLSearchParams(raw)

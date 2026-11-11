@@ -1,6 +1,6 @@
 import { Link, useNavigate, useSearch } from '@tanstack/react-router'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { Heart, LogOut, Plus, UserRound, Wallet as WalletIcon, X } from 'lucide-react'
+import { Activity, Download, Heart, LifeBuoy, LogOut, Plus, Tags, UserRound, Wallet as WalletIcon, X } from 'lucide-react'
 import { useId, useState, type FormEvent } from 'react'
 import { Button, Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle, DialogTrigger, EmptyState } from '../components/ui'
 import { networks, walletProviders, type LoginInput, type PasswordInput, type Profile, type ProfileInput, type RegisterInput, type Session, type Wallet, type WalletInput } from '../contracts'
@@ -84,14 +84,18 @@ function AuthForm({ register = false, redirect }: { register?: boolean; redirect
   </div>
 }
 
-function AccountSidebar() {
+export function AccountSidebar() {
   const logout = useMutation({ mutationFn: () => api.post<void>('/session/logout'), onSuccess: () => acceptSession(null) })
   return <aside className="commerce-account-sidebar">
     <h2>Meu perfil</h2>
     <nav aria-label="Minha conta">
       <Link to="/profile"><UserRound size={18} aria-hidden /> Dados do perfil</Link>
       <Link to="/wallets"><WalletIcon size={18} aria-hidden /> Carteiras</Link>
+      <Link to="/activity"><Activity size={18} aria-hidden /> Atividade</Link>
       <Link to="/favorites"><Heart size={18} aria-hidden /> Lista de interesse</Link>
+      <Link to="/offers"><Tags size={18} aria-hidden /> Ofertas</Link>
+      <Link to="/downloads"><Download size={18} aria-hidden /> Arquivos baixados</Link>
+      <Link to="/support"><LifeBuoy size={18} aria-hidden /> Suporte</Link>
       <Button variant="ghost" type="button" onClick={() => logout.mutate()} disabled={logout.isPending}><LogOut size={18} aria-hidden /> Sair</Button>
     </nav>
     {logout.isError && <Failure message={logout.error.message} />}
